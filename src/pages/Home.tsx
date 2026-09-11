@@ -1,0 +1,91 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/Tabs'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../components/ui/Card'
+
+const units = [
+  {
+    id: 'unit-1',
+    title: 'Unit I',
+    topics: [
+      { id: 'csma-cd', title: 'CSMA/CD', description: 'Carrier Sense Multiple Access with Collision Detection protocol', status: 'Available' },
+      { id: 'token-ring', title: 'Token Ring', description: 'Local area network protocol using a token-passing mechanism', status: 'Coming soon' },
+    ]
+  },
+  {
+    id: 'unit-2',
+    title: 'Unit II',
+    topics: [
+      { id: 'dijkstra', title: 'Dijkstra Routing', description: 'Shortest path first routing algorithm', status: 'Coming soon' },
+      { id: 'distance-vector', title: 'Distance Vector', description: 'Routing protocol using distance-vector algorithms', status: 'Coming soon' },
+    ]
+  },
+  {
+    id: 'unit-3',
+    title: 'Unit III',
+    topics: [
+      { id: 'tcp-handshake', title: 'TCP 3-Way Handshake', description: 'Connection establishment in Transmission Control Protocol', status: 'Coming soon' },
+      { id: 'congestion-control', title: 'TCP Congestion Control', description: 'Algorithms to avoid network congestion', status: 'Coming soon' },
+    ]
+  }
+]
+
+export function Home() {
+  return (
+    <div className="container mx-auto px-4 py-8 max-w-5xl">
+      <header className="mb-12 text-center">
+        <h1 className="text-4xl font-bold mb-4 font-mono tracking-tight text-primary">CN Visualizer</h1>
+        <p className="text-lg text-textMuted max-w-2xl mx-auto">
+          Interactive visualizations for Computer Networks protocols and algorithms.
+        </p>
+      </header>
+
+      <Tabs defaultValue="unit-1" className="w-full">
+        <div className="flex justify-center mb-8">
+          <TabsList className="grid w-full max-w-md grid-cols-3">
+            {units.map((unit) => (
+              <TabsTrigger key={unit.id} value={unit.id}>
+                {unit.title}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
+
+        {units.map((unit) => (
+          <TabsContent key={unit.id} value={unit.id}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {unit.topics.map((topic) => (
+                <Link 
+                  key={topic.id} 
+                  to={topic.status === 'Available' ? `/topic/${topic.id}` : '#'}
+                  className={topic.status === 'Available' ? 'block' : 'block cursor-not-allowed opacity-75'}
+                  onClick={(e) => topic.status !== 'Available' && e.preventDefault()}
+                >
+                  <Card className="h-full transition-all hover:border-primary hover:shadow-md group">
+                    <CardHeader className="pb-4">
+                      <div className="flex justify-between items-start gap-4">
+                        <CardTitle className="group-hover:text-primary transition-colors">
+                          {topic.title}
+                        </CardTitle>
+                        <span className={`text-xs px-2 py-1 rounded-full font-mono font-medium ${
+                          topic.status === 'Available' 
+                            ? 'bg-success/10 text-success border border-success/20' 
+                            : 'bg-surfaceHover text-textMuted border border-border'
+                        }`}>
+                          {topic.status}
+                        </span>
+                      </div>
+                      <CardDescription className="pt-2">
+                        {topic.description}
+                      </CardDescription>
+                    </CardHeader>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </TabsContent>
+        ))}
+      </Tabs>
+    </div>
+  )
+}

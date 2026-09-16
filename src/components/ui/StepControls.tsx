@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Play, Pause, SkipBack, SkipForward, RotateCcw } from 'lucide-react'
 import { Button } from './Button'
 import { Slider } from './Slider'

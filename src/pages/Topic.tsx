@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react'
 import { StepControls } from '../components/ui/StepControls'
-import { Button } from '../components/ui/Button'
 
 export function Topic() {
   const { slug } = useParams<{ slug: string }>()

@@ -1,7 +1,7 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/Tabs'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../components/ui/Card'
+import { Card, CardHeader, CardTitle, CardDescription,  } from '../components/ui/Card'
 
 const units = [
   {

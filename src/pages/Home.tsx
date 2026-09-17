@@ -8,7 +8,9 @@ const units = [
     id: 'unit-1',
     title: 'Unit I',
     topics: [
-      { id: 'csma-cd', title: 'CSMA/CD', description: 'Carrier Sense Multiple Access with Collision Detection protocol', status: 'Available' },
+      { id: 'encapsulation', title: 'Protocol Encapsulation', description: 'OSI and TCP/IP protocol layering, encapsulation and decapsulation', status: 'Available' },
+      { id: 'dns-resolution', title: 'DNS Resolution', description: 'Recursive vs Iterative queries in the Domain Name System', status: 'Available' },
+      { id: 'csma-cd', title: 'CSMA/CD', description: 'Carrier Sense Multiple Access with Collision Detection protocol', status: 'Coming soon' },
       { id: 'token-ring', title: 'Token Ring', description: 'Local area network protocol using a token-passing mechanism', status: 'Coming soon' },
     ]
   },
@@ -16,6 +18,7 @@ const units = [
     id: 'unit-2',
     title: 'Unit II',
     topics: [
+      { id: 'tcp-handshake', title: 'TCP 3-Way Handshake', description: 'Connection establishment in Transmission Control Protocol', status: 'Available' },
       { id: 'dijkstra', title: 'Dijkstra Routing', description: 'Shortest path first routing algorithm', status: 'Coming soon' },
       { id: 'distance-vector', title: 'Distance Vector', description: 'Routing protocol using distance-vector algorithms', status: 'Coming soon' },
     ]
@@ -24,7 +27,6 @@ const units = [
     id: 'unit-3',
     title: 'Unit III',
     topics: [
-      { id: 'tcp-handshake', title: 'TCP 3-Way Handshake', description: 'Connection establishment in Transmission Control Protocol', status: 'Coming soon' },
       { id: 'congestion-control', title: 'TCP Congestion Control', description: 'Algorithms to avoid network congestion', status: 'Coming soon' },
     ]
   }

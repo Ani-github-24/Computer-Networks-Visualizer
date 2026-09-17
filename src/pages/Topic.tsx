@@ -1,21 +1,66 @@
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react'
 import { StepControls } from '../components/ui/StepControls'
+import { topicRegistry } from '../topics'
+import ReactMarkdown from 'react-markdown'
 
 export function Topic() {
   const { slug } = useParams<{ slug: string }>()
+  const topicData = slug ? topicRegistry[slug] : null
   
-  // Mock state for the visualization shell
   const [isPlaying, setIsPlaying] = useState(false)
   const [speed, setSpeed] = useState(3)
+  const [currentStep, setCurrentStep] = useState(0)
   const [showTheory, setShowTheory] = useState(false)
 
-  // This would typically be fetched based on the slug
-  const topicData = {
-    title: slug?.toUpperCase().replace('-', ' ') || 'Protocol Topic',
-    intro: 'This is a brief introductory paragraph explaining the core concept of this protocol or algorithm. It provides the necessary context before diving into the visualization.'
+  // Auto-play interval logic
+  useEffect(() => {
+    if (!isPlaying || !topicData) return;
+    
+    // Invert speed to ms: e.g. speed 1 = 2000ms, speed 10 = 200ms
+    const intervalMs = 2000 - ((speed - 1) * 200); 
+    
+    const intervalId = setInterval(() => {
+      setCurrentStep(prev => {
+        if (prev >= topicData.maxSteps) {
+          setIsPlaying(false);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, intervalMs);
+
+    return () => clearInterval(intervalId);
+  }, [isPlaying, speed, topicData?.maxSteps]);
+
+  const handleStepForward = useCallback(() => {
+    if (topicData && currentStep < topicData.maxSteps) {
+      setCurrentStep(prev => prev + 1);
+    }
+  }, [currentStep, topicData]);
+
+  const handleStepBack = useCallback(() => {
+    if (currentStep > 0) {
+      setCurrentStep(prev => prev - 1);
+    }
+  }, [currentStep]);
+
+  const handleReset = useCallback(() => {
+    setIsPlaying(false);
+    setCurrentStep(0);
+  }, []);
+
+  if (!topicData) {
+    return (
+      <div className="container mx-auto px-4 py-16 text-center">
+        <h2 className="text-2xl font-mono text-error mb-4">Topic not found: {slug}</h2>
+        <Link to="/" className="text-primary hover:underline">Return to Dashboard</Link>
+      </div>
+    );
   }
+
+  const Visualizer = topicData.Visualizer;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -35,22 +80,17 @@ export function Topic() {
 
       {/* Visualization Container */}
       <div className="mb-8">
-        <div className="bg-surface border border-border rounded-lg aspect-video w-full flex items-center justify-center mb-4 relative overflow-hidden shadow-sm">
-          {/* Placeholder for the actual canvas/svg visualization */}
-          <div className="text-center">
-            <div className="font-mono text-border text-6xl mb-4 opacity-50">&lt;/&gt;</div>
-            <p className="text-textMuted font-medium">Visualization Canvas</p>
-            <p className="text-xs text-textMuted/70 mt-2 font-mono">Ready for protocol simulation</p>
-          </div>
+        <div className="bg-surface border border-border rounded-lg w-full flex items-center justify-center mb-4 relative overflow-hidden shadow-sm p-4">
+          <Visualizer currentStep={currentStep} />
         </div>
 
         {/* Reusable Controls */}
         <StepControls 
           isPlaying={isPlaying}
           onPlayPause={() => setIsPlaying(!isPlaying)}
-          onStepForward={() => {}}
-          onStepBack={() => {}}
-          onReset={() => setIsPlaying(false)}
+          onStepForward={handleStepForward}
+          onStepBack={handleStepBack}
+          onReset={handleReset}
           speed={speed}
           onSpeedChange={setSpeed}
         />
@@ -67,17 +107,8 @@ export function Topic() {
         </button>
         
         {showTheory && (
-          <div className="p-6 border-t border-border prose prose-invert max-w-none text-textMuted">
-            <p>
-              This section contains the detailed theoretical explanation of the protocol.
-              It uses standard markdown-style typography to explain the steps occurring in the visualization above.
-            </p>
-            <h3 className="text-text font-medium mt-6 mb-3 text-lg">Key Concepts</h3>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Concept point 1 explaining the mechanism</li>
-              <li>Concept point 2 detailing the specific rules</li>
-              <li>Concept point 3 covering edge cases</li>
-            </ul>
+          <div className="p-6 border-t border-border prose prose-invert max-w-none text-textMuted font-mono">
+            <ReactMarkdown>{topicData.theory}</ReactMarkdown>
           </div>
         )}
       </section>

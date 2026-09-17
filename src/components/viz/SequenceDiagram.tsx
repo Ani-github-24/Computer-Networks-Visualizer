@@ -23,6 +23,7 @@ export interface SequenceMessage<T = PacketField[]> {
   stepIndex: number; // The logical time step this message occurs
   data?: T; 
   isError?: boolean; 
+  badge?: string; // Optional badge to display above or next to the label
 }
 
 export interface SequenceDiagramProps<T = PacketField[]> {
@@ -107,6 +108,11 @@ export function SequenceDiagram<T = PacketField[]>({
               }}
               onClick={() => onMessageClick?.(msg)}
             >
+              {msg.badge && msg.stepIndex === currentStep && (
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-primary/20 border border-primary text-primary text-[10px] px-2 py-0.5 rounded whitespace-nowrap shadow-sm pointer-events-none z-20 font-bold">
+                  {msg.badge}
+                </div>
+              )}
               <span className={`text-xs font-mono mb-1 text-center group-hover:font-bold ${
                 msg.isError ? 'text-error' : msg.stepIndex === currentStep ? 'text-primary' : 'text-textMuted'
               }`}>

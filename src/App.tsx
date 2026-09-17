@@ -2,6 +2,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { Topic } from './pages/Topic'
+import { Demo } from './pages/Demo'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/topic/:slug" element={<Topic />} />
+          <Route path="/demo" element={<Demo />} />
         </Routes>
       </main>
       <footer className="py-6 text-center text-sm text-textMuted border-t border-border mt-12">

@@ -1,6 +1,7 @@
 import { EncapsulationVisualizer, ENCAPSULATION_MAX_STEPS } from './encapsulation';
 import { DnsVisualizer, DNS_MAX_STEPS } from './dns';
 import { TcpHandshakeVisualizer, TCP_HANDSHAKE_MAX_STEPS } from './tcp-handshake';
+import { TcpCongestionControlVisualizer, TCP_CC_MAX_STEPS } from './tcp-congestion-control';
 import { ComponentType } from 'react';
 
 export interface TopicDefinition {
@@ -56,5 +57,20 @@ export const topicRegistry: Record<string, TopicDefinition> = {
     maxSteps: TCP_HANDSHAKE_MAX_STEPS,
     unitId: 'unit-2',
     Visualizer: TcpHandshakeVisualizer
+  },
+  'congestion-control': {
+    title: 'TCP Congestion Control',
+    intro: 'This visualization demonstrates TCP Congestion Control mechanisms over multiple Round Trip Times (RTTs).',
+    theory: `
+### Key Concepts
+
+- **Slow Start**: When starting or recovering from a severe timeout loss, the sender exponentially grows its congestion window (cwnd), doubling it every RTT.
+- **Congestion Avoidance**: When cwnd reaches the Slow Start Threshold (ssthresh), the sender shifts to a linear, additive increase phase (1 MSS per RTT).
+- **Timeout Loss (Severe)**: When an ACK is severely delayed, cwnd resets to 1, ssthresh halves, and the phase forcibly returns to Slow Start.
+- **Triple Duplicate ACK (Mild)**: When a packet is lost but subsequent packets arrive, duplicate ACKs trigger Fast Retransmit. cwnd and ssthresh both drop to half, and the phase remains in Congestion Avoidance.
+    `,
+    maxSteps: TCP_CC_MAX_STEPS,
+    unitId: 'unit-2',
+    Visualizer: TcpCongestionControlVisualizer
   }
 };

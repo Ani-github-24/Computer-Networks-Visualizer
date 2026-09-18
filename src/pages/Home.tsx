@@ -19,15 +19,15 @@ const units = [
     title: 'Unit II',
     topics: [
       { id: 'tcp-handshake', title: 'TCP 3-Way Handshake', description: 'Connection establishment in Transmission Control Protocol', status: 'Available' },
-      { id: 'dijkstra', title: 'Dijkstra Routing', description: 'Shortest path first routing algorithm', status: 'Coming soon' },
-      { id: 'distance-vector', title: 'Distance Vector', description: 'Routing protocol using distance-vector algorithms', status: 'Coming soon' },
+      { id: 'congestion-control', title: 'TCP Congestion Control', description: 'Algorithms to avoid network congestion', status: 'Available' },
     ]
   },
   {
     id: 'unit-3',
     title: 'Unit III',
     topics: [
-      { id: 'congestion-control', title: 'TCP Congestion Control', description: 'Algorithms to avoid network congestion', status: 'Coming soon' },
+      { id: 'dijkstra', title: 'Dijkstra Routing', description: 'Shortest path first routing algorithm', status: 'Coming soon' },
+      { id: 'distance-vector', title: 'Distance Vector', description: 'Routing protocol using distance-vector algorithms', status: 'Coming soon' },
     ]
   }
 ]

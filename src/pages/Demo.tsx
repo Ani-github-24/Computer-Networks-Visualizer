@@ -123,7 +123,7 @@ export function Demo() {
             setAlgoLogs(prev => [...prev, logMsg]);
             setAlgoParams(prev => ({ ...prev, [id]: value }));
           }}
-          renderFunction={(state) => (
+          renderFunction={() => (
             <div className="flex flex-col items-center p-8 bg-surfaceHover rounded border border-border">
               <span className="text-xl font-mono text-primary">State Renderer</span>
               <span className="text-textMuted mt-2">Loss Enabled: {algoParams.loss ? 'YES' : 'NO'}</span>

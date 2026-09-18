@@ -2,7 +2,7 @@ import { EncapsulationVisualizer, ENCAPSULATION_MAX_STEPS } from './encapsulatio
 import { DnsVisualizer, DNS_MAX_STEPS } from './dns';
 import { TcpHandshakeVisualizer, TCP_HANDSHAKE_MAX_STEPS } from './tcp-handshake';
 import { TcpCongestionControlVisualizer, TCP_CC_MAX_STEPS } from './tcp-congestion-control';
-import { ComponentType } from 'react';
+import type { ComponentType } from 'react';
 
 export interface TopicDefinition {
   title: string;

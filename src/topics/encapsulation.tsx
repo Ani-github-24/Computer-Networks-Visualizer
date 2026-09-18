@@ -166,14 +166,14 @@ export function EncapsulationVisualizer({ currentStep }: EncapsulationVisualizer
       </div>
 
       <div className="flex-grow min-h-[400px]">
-        <LayerStack
-          layers={stepConfig.layers}
-          payloadData="GET /index.html"
-          phase={stepConfig.phase}
-          activeLayerId={stepConfig.activeLayer}
-          onHeaderClick={(layer) => setInspectedLayerId(layer.id)}
-        />
-      </div>
+              <LayerStack
+                layers={stepConfig.layers}
+                payloadData="GET /index.html"
+                phase={stepConfig.phase}
+                activeLayerId={stepConfig.activeLayer}
+                currentStep={currentStep}
+                onHeaderClick={(layer) => setInspectedLayerId(layer.id)}
+              />   </div>
 
       <div className="h-[200px] flex justify-center items-start">
         {activeLayerData?.headerFields ? (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { AlgorithmSimulation, type SimParameterConfig } from '../components/viz/AlgorithmSimulation';
 
 // --- DATA DEFINITIONS FROM SPEC --- //

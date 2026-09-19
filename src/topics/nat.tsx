@@ -170,7 +170,7 @@ export function generateStates(): NATState[] {
     step: 7,
     description: "Step 7 (Failure): Malicious host attempts to scan Gateway on port 5001. Gateway finds NO matching translation entry and drops the packet. NAT incidentally acts as a stateful firewall.",
     ...getTopology(['hacker', 'gateway'], ['wan-hacker']),
-    packet: makePacket('203.0.113.50', '23456', '198.51.100.1', '5001'),
+    packet: makePacket('192.0.2.50', '23456', '198.51.100.1', '5001'),
     tableData: [{
       id: 'conn1',
       cells: {

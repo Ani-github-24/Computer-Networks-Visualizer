@@ -58,10 +58,10 @@ export function SignalWaveform({
   return (
     <div className="w-full flex flex-col gap-6 bg-surface rounded-lg border border-border p-6 min-h-[300px]">
       <div className="flex justify-between items-center mb-2">
-        <h3 className="font-mono text-primary font-bold">Signal Encoding: {encoding}</h3>
+        <h3 className="font-mono text-accent font-bold">Signal Encoding: {encoding}</h3>
         <div className="flex gap-1 font-mono text-lg tracking-widest bg-background px-4 py-1 rounded border border-border">
           {dataBits.split('').map((b, i) => (
-            <span key={i} className={b === '1' ? 'text-primary' : 'text-textMuted'}>{b}</span>
+            <span key={i} className={b === '1' ? 'text-accent' : 'text-textMuted'}>{b}</span>
           ))}
         </div>
       </div>
@@ -70,7 +70,7 @@ export function SignalWaveform({
         <div className="relative w-full h-[100px] border-l border-b border-border/50">
           <span className="absolute -left-2 -top-3 text-xs text-textMuted font-mono bg-surface px-1">Amplitude</span>
           <span className="absolute right-0 -bottom-5 text-xs text-textMuted font-mono">Time (Frequency: {frequency})</span>
-          {showComparison && <span className="absolute top-2 right-2 text-xs text-primary font-mono opacity-50">Clean Signal</span>}
+          {showComparison && <span className="absolute top-2 right-2 text-xs text-accent font-mono opacity-50">Clean Signal</span>}
           
           <svg width="100%" height="100%" viewBox="0 0 800 100" preserveAspectRatio="none">
             {/* Grid lines */}

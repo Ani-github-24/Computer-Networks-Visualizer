@@ -11,7 +11,7 @@ import { LiveTable } from '../components/viz/LiveTable';
 export function Demo() {
   const DemoSection = ({ title, children }: { title: string, children: React.ReactNode }) => (
     <div className="mb-12 flex flex-col gap-4">
-      <h2 className="text-2xl font-bold font-mono text-primary border-b border-border pb-2">{title}</h2>
+      <h2 className="text-2xl font-bold font-mono text-accent border-b border-border pb-2">{title}</h2>
       {children}
     </div>
   );
@@ -43,7 +43,7 @@ export function Demo() {
     { id: 'D', label: 'Router D', type: 'router', x: 500, y: 150, state: 'default' as const }
   ];
   const topEdges = [
-    { id: 'e1', source: 'A', target: 'B', weight: 5, highlightState: 'primary-path' as const },
+    { id: 'e1', source: 'A', target: 'B', weight: 5, highlightState: 'accent-path' as const },
     { id: 'e2', source: 'A', target: 'C', weight: 10, highlightState: 'alternate-path' as const },
     { id: 'e3', source: 'B', target: 'D', weight: 2 },
     { id: 'e4', source: 'C', target: 'D', weight: 1 }
@@ -99,7 +99,7 @@ export function Demo() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <h1 className="text-4xl font-bold font-mono text-primary mb-8 text-center">Visualization Primitives Demo</h1>
+      <h1 className="text-4xl font-bold font-mono text-accent mb-8 text-center">Visualization Primitives Demo</h1>
       
       <DemoSection title="1. SequenceDiagram">
         <SequenceDiagram actors={seqActors} messages={seqMessages} currentStep={1} />
@@ -125,7 +125,7 @@ export function Demo() {
           }}
           renderFunction={() => (
             <div className="flex flex-col items-center p-8 bg-surfaceHover rounded border border-border">
-              <span className="text-xl font-mono text-primary">State Renderer</span>
+              <span className="text-xl font-mono text-accent">State Renderer</span>
               <span className="text-textMuted mt-2">Loss Enabled: {algoParams.loss ? 'YES' : 'NO'}</span>
               <span className="text-textMuted">Speed: {algoParams.speed}</span>
               <span className="text-textMuted">Algorithm: {algoParams.algo}</span>
@@ -133,7 +133,7 @@ export function Demo() {
           )}
         />
         <div className="mt-4 p-4 bg-black border border-border rounded">
-          <h4 className="font-mono text-primary text-sm mb-2">Console Logs:</h4>
+          <h4 className="font-mono text-accent text-sm mb-2">Console Logs:</h4>
           <pre id="console-logs" className="text-xs font-mono text-textMuted">
             {algoLogs.join('\n')}
           </pre>
@@ -183,9 +183,9 @@ export function Demo() {
 
       <DemoSection title="8. LiveTable Test">
         <div className="flex gap-4 mb-4">
-          <button id="btn-step1" onClick={doTableStep1} className="px-4 py-2 bg-surfaceHover border border-border rounded text-text font-mono text-sm hover:bg-primary/20 hover:border-primary">Step 1: Add Row</button>
-          <button id="btn-step2" onClick={doTableStep2} className="px-4 py-2 bg-surfaceHover border border-border rounded text-text font-mono text-sm hover:bg-primary/20 hover:border-primary">Step 2: Update r2</button>
-          <button id="btn-step3" onClick={doTableStep3} className="px-4 py-2 bg-surfaceHover border border-border rounded text-text font-mono text-sm hover:bg-primary/20 hover:border-primary">Step 3: Remove r1</button>
+          <button id="btn-step1" onClick={doTableStep1} className="px-4 py-2 bg-surfaceHover border border-border rounded text-text font-mono text-sm hover:bg-accent/20 hover:border-accent">Step 1: Add Row</button>
+          <button id="btn-step2" onClick={doTableStep2} className="px-4 py-2 bg-surfaceHover border border-border rounded text-text font-mono text-sm hover:bg-accent/20 hover:border-accent">Step 2: Update r2</button>
+          <button id="btn-step3" onClick={doTableStep3} className="px-4 py-2 bg-surfaceHover border border-border rounded text-text font-mono text-sm hover:bg-accent/20 hover:border-accent">Step 3: Remove r1</button>
         </div>
         <LiveTable title="Routing Table (R1)" columns={tableCols} data={tableData} rowStates={tableStates} />
       </DemoSection>

@@ -55,7 +55,7 @@ export function SequenceDiagram<T = PacketField[]>({
         <div className="flex justify-between w-full relative z-10">
           {actors.map((actor) => (
             <div key={actor.id} className="flex flex-col items-center" style={{ width: '120px' }}>
-              <div className="w-16 h-16 bg-surfaceHover border-2 border-primary rounded-lg flex items-center justify-center font-mono text-sm font-bold shadow-sm mb-2 text-text">
+              <div className="w-16 h-16 bg-surfaceHover border-2 border-accent rounded-lg flex items-center justify-center font-mono text-sm font-bold shadow-sm mb-2 text-text">
                 {actor.name}
               </div>
               {actor.type && (
@@ -109,22 +109,22 @@ export function SequenceDiagram<T = PacketField[]>({
               onClick={() => onMessageClick?.(msg)}
             >
               {msg.badge && msg.stepIndex === currentStep && (
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-primary/20 border border-primary text-primary text-[10px] px-2 py-0.5 rounded whitespace-nowrap shadow-sm pointer-events-none z-20 font-bold">
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-accent/20 border border-accent text-accent text-[10px] px-2 py-0.5 rounded whitespace-nowrap shadow-sm pointer-events-none z-20 font-bold">
                   {msg.badge}
                 </div>
               )}
               <span className={`text-xs font-mono mb-1 text-center group-hover:font-bold ${
-                msg.isError ? 'text-error' : msg.stepIndex === currentStep ? 'text-primary' : 'text-textMuted'
+                msg.isError ? 'text-error' : msg.stepIndex === currentStep ? 'text-accent' : 'text-textMuted'
               }`}>
                 {msg.label}
               </span>
               
               <div className="relative w-full flex items-center">
-                <div className={`w-full h-0.5 ${msg.isError ? 'bg-error' : 'bg-primary'}`} />
+                <div className={`w-full h-0.5 ${msg.isError ? 'bg-error' : 'bg-accent'}`} />
                 
                 {/* Arrow head */}
                 <div 
-                  className={`absolute w-3 h-3 ${msg.isError ? 'border-error' : 'border-primary'} transform rotate-45`}
+                  className={`absolute w-3 h-3 ${msg.isError ? 'border-error' : 'border-accent'} transform rotate-45`}
                   style={{
                     borderTopWidth: isLeftToRight ? '2px' : '0',
                     borderRightWidth: isLeftToRight ? '2px' : '0',

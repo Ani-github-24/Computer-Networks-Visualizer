@@ -7,17 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#0f172a', // slate-900
-        surface: '#1e293b', // slate-800
-        surfaceHover: '#334155', // slate-700
-        border: '#334155', // slate-700
-        text: '#f8fafc', // slate-50
-        textMuted: '#94a3b8', // slate-400
-        primary: '#0ea5e9', // sky-500
-        primaryHover: '#0284c7', // sky-600
-        success: '#10b981', // emerald-500
-        warning: '#f59e0b', // amber-500
-        error: '#ef4444', // red-500
+        background: '#0a0a0a', // neutral-950
+        surface: '#171717', // neutral-900
+        surfaceHover: '#262626', // neutral-800
+        border: '#404040', // neutral-700
+        text: '#f5f5f5', // neutral-100
+        textMuted: '#a3a3a3', // neutral-400
+        accent: '#06b6d4', // cyan-500
+        accentHover: '#0891b2', // cyan-600
+        error: '#dc2626', // red-600 (kept strictly for failure scenarios like drops/timeouts)
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

@@ -27,7 +27,7 @@ export function StepControls({
   disableStepForward = false,
 }: StepControlsProps) {
   return (
-    <div className="flex flex-col gap-4 p-4 border border-border rounded-lg bg-surface">
+    <div className="flex flex-col gap-4 p-4 border border-border rounded bg-surface">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Button variant="outline" size="icon" onClick={onReset} title="Reset">

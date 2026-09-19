@@ -219,7 +219,7 @@ export function DijkstraVisualizer({ currentStep }: DijkstraVisualizerProps) {
   return (
     <div className="flex flex-col gap-6 w-full h-full">
       <div className="bg-surfaceHover p-4 rounded text-center text-text border border-border">
-        <strong className="text-primary font-mono mr-2">Step {currentStep}/{DIJKSTRA_MAX_STEPS}:</strong>
+        <strong className="text-accent font-mono mr-2">Step {currentStep}/{DIJKSTRA_MAX_STEPS}:</strong>
         {currentState.description}
       </div>
 

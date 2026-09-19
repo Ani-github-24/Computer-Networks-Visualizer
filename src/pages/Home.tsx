@@ -33,7 +33,7 @@ export function Home() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
       <header className="mb-12 text-center">
-        <h1 className="text-4xl font-bold mb-4 font-mono tracking-tight text-primary">CN Visualizer</h1>
+        <h1 className="text-4xl font-bold mb-4 font-mono tracking-tight text-accent">CN Visualizer</h1>
         <p className="text-lg text-textMuted max-w-2xl mx-auto">
           Interactive visualizations for Computer Networks protocols and algorithms.
         </p>
@@ -60,15 +60,15 @@ export function Home() {
                   className={topic.status === 'Available' ? 'block' : 'block cursor-not-allowed opacity-75'}
                   onClick={(e) => topic.status !== 'Available' && e.preventDefault()}
                 >
-                  <Card className="h-full transition-all hover:border-primary hover:shadow-md group">
+                  <Card className="h-full transition-all hover:border-accent hover:shadow-sm group">
                     <CardHeader className="pb-4">
                       <div className="flex justify-between items-start gap-4">
-                        <CardTitle className="group-hover:text-primary transition-colors">
+                        <CardTitle className="group-hover:text-accent transition-colors">
                           {topic.title}
                         </CardTitle>
                         <span className={`text-xs px-2 py-1 rounded-full font-mono font-medium ${
                           topic.status === 'Available' 
-                            ? 'bg-success/10 text-success border border-success/20' 
+                            ? 'bg-accent/10 text-accent border border-accent/20' 
                             : 'bg-surfaceHover text-textMuted border border-border'
                         }`}>
                           {topic.status}

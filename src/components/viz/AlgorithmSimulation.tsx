@@ -65,8 +65,8 @@ export function AlgorithmSimulation<TState>({
                 <button
                   id={param.id}
                   onClick={() => onParameterChange(param.id, !parameterValues[param.id])}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background ${
-                    parameterValues[param.id] ? 'bg-primary' : 'bg-surfaceHover'
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background ${
+                    parameterValues[param.id] ? 'bg-accent' : 'bg-surfaceHover'
                   }`}
                 >
                   <span
@@ -82,7 +82,7 @@ export function AlgorithmSimulation<TState>({
                   id={param.id}
                   value={parameterValues[param.id] as string}
                   onChange={(e) => onParameterChange(param.id, e.target.value)}
-                  className="w-full bg-background border border-border text-sm rounded px-3 py-2 text-text focus:outline-none focus:border-primary"
+                  className="w-full bg-background border border-border text-sm rounded px-3 py-2 text-text focus:outline-none focus:border-accent"
                 >
                   {param.options.map((opt) => (
                     <option key={opt.value} value={opt.value}>{opt.label}</option>

@@ -55,7 +55,7 @@ export function Topic() {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
         <h2 className="text-2xl font-mono text-error mb-4">Topic not found: {slug}</h2>
-        <Link to="/" className="text-primary hover:underline">Return to Dashboard</Link>
+        <Link to="/" className="text-accent hover:underline">Return to Dashboard</Link>
       </div>
     );
   }
@@ -72,7 +72,7 @@ export function Topic() {
       </div>
 
       <header className="mb-8 border-b border-border pb-6">
-        <h1 className="text-3xl font-bold font-mono text-primary mb-3">{topicData.title}</h1>
+        <h1 className="text-3xl font-bold font-mono text-accent mb-3">{topicData.title}</h1>
         <p className="text-textMuted text-lg max-w-3xl leading-relaxed">
           {topicData.intro}
         </p>

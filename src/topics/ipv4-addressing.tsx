@@ -136,7 +136,7 @@ export function Ipv4AddressingVisualizer() {
       {/* PART A: IPv4 Header */}
       <section className="bg-surface rounded-lg border border-border overflow-hidden">
         <div className="bg-surfaceHover px-6 py-4 border-b border-border">
-          <h2 className="text-xl font-bold font-mono text-primary">Part A: IPv4 Header (160 bits / 20 Bytes)</h2>
+          <h2 className="text-xl font-bold font-mono text-accent">Part A: IPv4 Header (160 bits / 20 Bytes)</h2>
           <p className="text-sm text-textMuted mt-1">
             The exact bit-level layout of a standard IPv4 datagram. Hover over fields for details.
           </p>
@@ -146,19 +146,19 @@ export function Ipv4AddressingVisualizer() {
           <div className="flex gap-4 mb-6">
             <button 
               onClick={() => setFragState('unfragmented')}
-              className={`px-4 py-2 rounded font-mono text-sm border ${fragState === 'unfragmented' ? 'bg-primary text-white border-primary' : 'bg-surface border-border hover:border-primary text-text'}`}
+              className={`px-4 py-2 rounded font-mono text-sm border ${fragState === 'unfragmented' ? 'bg-accent text-background border-accent' : 'bg-surface border-border hover:border-accent text-text'}`}
             >
               Unfragmented
             </button>
             <button 
               onClick={() => setFragState('frag1')}
-              className={`px-4 py-2 rounded font-mono text-sm border ${fragState === 'frag1' ? 'bg-primary text-white border-primary' : 'bg-surface border-border hover:border-primary text-text'}`}
+              className={`px-4 py-2 rounded font-mono text-sm border ${fragState === 'frag1' ? 'bg-accent text-background border-accent' : 'bg-surface border-border hover:border-accent text-text'}`}
             >
               Fragment 1
             </button>
             <button 
               onClick={() => setFragState('frag2')}
-              className={`px-4 py-2 rounded font-mono text-sm border ${fragState === 'frag2' ? 'bg-primary text-white border-primary' : 'bg-surface border-border hover:border-primary text-text'}`}
+              className={`px-4 py-2 rounded font-mono text-sm border ${fragState === 'frag2' ? 'bg-accent text-background border-accent' : 'bg-surface border-border hover:border-accent text-text'}`}
             >
               Fragment 2
             </button>
@@ -169,7 +169,7 @@ export function Ipv4AddressingVisualizer() {
           <div className="mt-6 min-h-[60px] p-4 bg-background rounded border border-border flex items-center">
             {hoveredField ? (
               <div className="font-mono text-sm text-text">
-                <span className="font-bold text-primary mr-2">{hoveredField.name}:</span>
+                <span className="font-bold text-accent mr-2">{hoveredField.name}:</span>
                 {hoveredField.description}
               </div>
             ) : (
@@ -182,7 +182,7 @@ export function Ipv4AddressingVisualizer() {
       {/* PART B: Subnet Calculator */}
       <section className="bg-surface rounded-lg border border-border overflow-hidden">
         <div className="bg-surfaceHover px-6 py-4 border-b border-border">
-          <h2 className="text-xl font-bold font-mono text-primary">Part B: Bitwise Subnet Calculator</h2>
+          <h2 className="text-xl font-bold font-mono text-accent">Part B: Bitwise Subnet Calculator</h2>
           <p className="text-sm text-textMuted mt-1">
             Subnetting is fundamentally a bitwise AND/OR operation. Enter a CIDR to compute its bounds.
           </p>
@@ -195,7 +195,7 @@ export function Ipv4AddressingVisualizer() {
               type="text" 
               value={cidr}
               onChange={(e) => setCidr(e.target.value)}
-              className="w-full bg-background border border-border text-lg rounded px-4 py-2 text-text focus:outline-none focus:border-primary font-mono"
+              className="w-full bg-background border border-border text-lg rounded px-4 py-2 text-text focus:outline-none focus:border-accent font-mono"
               placeholder="192.168.1.100/26"
             />
             {!subnet && <div className="text-error text-sm mt-2">Invalid CIDR format (e.g., 192.168.1.100/26)</div>}
@@ -209,8 +209,8 @@ export function Ipv4AddressingVisualizer() {
                   <div className="grid grid-cols-2 gap-y-2 text-sm font-mono">
                     <span className="text-textMuted">IP Address:</span><span className="text-text">{subnet.ip}</span>
                     <span className="text-textMuted">Subnet Mask:</span><span className="text-text">{subnet.mask}</span>
-                    <span className="text-textMuted mt-2 pt-2 border-t border-border/50">Network Address:</span><span className="text-success mt-2 pt-2 border-t border-border/50">{subnet.network}</span>
-                    <span className="text-textMuted">Broadcast Address:</span><span className="text-warning">{subnet.broadcast}</span>
+                    <span className="text-textMuted mt-2 pt-2 border-t border-border/50">Network Address:</span><span className="text-accent mt-2 pt-2 border-t border-border/50">{subnet.network}</span>
+                    <span className="text-textMuted">Broadcast Address:</span><span className="text-textMuted">{subnet.broadcast}</span>
                     <span className="text-textMuted mt-2 pt-2 border-t border-border/50">Usable Host Range:</span>
                     <span className="text-text mt-2 pt-2 border-t border-border/50">{subnet.firstHost ? `${subnet.firstHost} - ${subnet.lastHost}` : 'N/A'}</span>
                     <span className="text-textMuted">Total Usable Hosts:</span><span className="text-text">{subnet.numHosts}</span>
@@ -227,13 +227,12 @@ export function Ipv4AddressingVisualizer() {
                     <div className="text-text">  {subnet.ipBin.replace(/\./g, ' ')}  (IP)</div>
                     <div className="text-text">&amp; {subnet.maskBin.replace(/\./g, ' ')}  (Mask)</div>
                     <div className="text-border">---------------------------------------</div>
-                    <div className="text-success mb-6">  {subnet.networkBin.replace(/\./g, ' ')}  (Network)</div>
-
-                    <div className="text-textMuted mb-1">Broadcast (Network OR Inverted Mask):</div>
-                    <div className="text-success">  {subnet.networkBin.replace(/\./g, ' ')}  (Network)</div>
+                    <div className="text-accent">  {subnet.networkBin.replace(/\./g, ' ')}  (Network)</div>
+                    <div className="text-textMuted mb-6">  {subnet.maskBin.replace(/\./g, ' ')}  (Mask)</div>
+                    <div className="text-textMuted">  {subnet.broadcastBin.replace(/\./g, ' ')}  (Broadcast)</div>
                     <div className="text-text">| {subnet.invMaskBin.replace(/\./g, ' ')}  (Inv. Mask)</div>
                     <div className="text-border">---------------------------------------</div>
-                    <div className="text-warning">  {subnet.broadcastBin.replace(/\./g, ' ')}  (Broadcast)</div>
+                    <div className="text-textMuted">  {subnet.broadcastBin.replace(/\./g, ' ')}  (Broadcast)</div>
                   </div>
                 </div>
               </div>

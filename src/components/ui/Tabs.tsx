@@ -50,7 +50,7 @@ export function TabsTrigger({ className, value, children, ...props }: TabsTrigge
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50",
+        "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:pointer-events-none disabled:opacity-50",
         isActive
           ? "bg-background text-text shadow-sm"
           : "hover:bg-surfaceHover hover:text-text",
@@ -77,7 +77,7 @@ export function TabsContent({ className, value, children, ...props }: TabsConten
   return (
     <div
       className={cn(
-        "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+        "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
         className
       )}
       {...props}

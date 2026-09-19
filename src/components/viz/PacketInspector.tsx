@@ -27,7 +27,7 @@ export function PacketInspector({ title = "Packet Inspector", fields, onFieldHov
   const totalBits = fields.reduce((sum, f) => sum + f.widthBits, 0);
 
   return (
-    <div className="bg-surface border border-border rounded-lg overflow-hidden flex flex-col w-full max-w-3xl">
+    <div className="bg-surface border border-border rounded overflow-hidden flex flex-col w-full max-w-3xl">
       <div className="bg-surfaceHover px-4 py-2 border-b border-border flex justify-between items-center">
         <h3 className="font-mono text-sm font-semibold text-text">{title}</h3>
         <span className="text-xs text-textMuted font-mono">{totalBits} bits</span>
@@ -41,7 +41,7 @@ export function PacketInspector({ title = "Packet Inspector", fields, onFieldHov
               <div
                 key={field.id}
                 className={`flex flex-col border-r border-border last:border-r-0 group cursor-help transition-colors ${
-                  field.isHighlight ? 'bg-primary/20' : 'hover:bg-surfaceHover'
+                  field.isHighlight ? 'bg-accent/10' : 'hover:bg-surfaceHover'
                 }`}
                 style={{ width: `${Math.max(percentage, 5)}%`, flexGrow: percentage }}
                 onMouseEnter={() => onFieldHover?.(field)}
@@ -51,7 +51,7 @@ export function PacketInspector({ title = "Packet Inspector", fields, onFieldHov
                   {field.name} ({field.widthBits}b)
                 </div>
                 <div className={`text-sm text-center font-mono py-3 truncate px-2 ${
-                  field.isHighlight ? 'text-primary font-bold' : 'text-text'
+                  field.isHighlight ? 'text-accent font-bold' : 'text-text'
                 }`}>
                   {field.value}
                 </div>

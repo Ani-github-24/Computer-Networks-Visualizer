@@ -149,7 +149,7 @@ export function TcpCongestionControlVisualizer({ currentStep }: TcpCongestionCon
           <polyline
             fill="none"
             stroke="currentColor"
-            className="text-primary"
+            className="text-accent"
             strokeWidth="3"
             points={points}
           />
@@ -162,7 +162,7 @@ export function TcpCongestionControlVisualizer({ currentStep }: TcpCongestionCon
                 cy={getY(s.cwnd)} 
                 r={4} 
                 fill="currentColor"
-                className={s.phase === 'Slow Start' ? 'text-primary' : 'text-success'} 
+                className={s.phase === 'Slow Start' ? 'text-accent' : 'text-textMuted'} 
               />
               {s.event !== 'Start' && s.event !== 'Success' && (
                 <text x={getX(s.rtt)} y={getY(s.cwnd) - 10} fontSize="10" fill="currentColor" className="text-error font-mono text-anchor-middle" textAnchor="middle">
@@ -179,12 +179,12 @@ export function TcpCongestionControlVisualizer({ currentStep }: TcpCongestionCon
         
         {/* Legend / Status */}
         <div className="mt-4 flex flex-wrap gap-4 text-sm font-mono justify-center">
-          <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-primary inline-block"></span> Slow Start</div>
-          <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-success inline-block"></span> Congestion Avoidance</div>
+          <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-accent inline-block"></span> Slow Start</div>
+          <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-border inline-block"></span> Congestion Avoidance</div>
           <div className="flex items-center gap-2"><span className="w-4 h-1 border-b-2 border-dashed border-error inline-block"></span> ssthresh: {state.ssthresh}</div>
         </div>
         <div className="mt-2 text-sm font-mono text-text">
-          Current cwnd: <span className="font-bold text-primary">{state.cwnd} MSS</span> | Phase: <span className="font-bold">{state.phase}</span>
+          Current cwnd: <span className="font-bold text-accent">{state.cwnd} MSS</span> | Phase: <span className="font-bold">{state.phase}</span>
         </div>
       </div>
     );
@@ -193,7 +193,7 @@ export function TcpCongestionControlVisualizer({ currentStep }: TcpCongestionCon
   return (
     <div className="flex flex-col gap-6 w-full h-full">
       <div className="bg-surfaceHover p-4 rounded text-center text-text border border-border">
-        <strong className="text-primary font-mono mr-2">RTT {currentStep}/{TCP_CC_MAX_STEPS}:</strong>
+        <strong className="text-accent font-mono mr-2">RTT {currentStep}/{TCP_CC_MAX_STEPS}:</strong>
         {currentStep === 0 ? "Initial state. Select an outcome and step forward." : `Outcome: ${currentState.event}`}
       </div>
 

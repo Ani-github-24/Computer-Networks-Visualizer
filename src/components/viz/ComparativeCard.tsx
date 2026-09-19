@@ -25,8 +25,8 @@ export function ComparativeCard({ titleA, titleB, rows }: ComparativeCardProps) 
     <div className="w-full bg-surface border border-border rounded-lg overflow-hidden shadow-sm">
       <div className="grid grid-cols-3 bg-surfaceHover border-b border-border font-mono font-bold text-sm">
         <div className="p-4 text-textMuted uppercase tracking-wider">Feature</div>
-        <div className="p-4 text-primary border-l border-border">{titleA}</div>
-        <div className="p-4 text-success border-l border-border">{titleB}</div>
+        <div className="p-4 text-accent border-l border-border">{titleA}</div>
+        <div className="p-4 text-textMuted border-l border-border">{titleB}</div>
       </div>
       
       <div className="flex flex-col">

@@ -34,11 +34,11 @@ export function LayerStack({
   
   // A standard color mapping for OSI/TCP-IP layers
   const layerColors: Record<string, string> = {
-    'application': 'bg-pink-500/20 border-pink-500/50 text-pink-400',
-    'transport': 'bg-orange-500/20 border-orange-500/50 text-orange-400',
-    'network': 'bg-primary/20 border-primary/50 text-primary',
-    'link': 'bg-success/20 border-success/50 text-success',
-    'physical': 'bg-slate-500/20 border-slate-500/50 text-slate-300'
+    'application': 'bg-surfaceHover border-border text-text',
+    'transport': 'bg-surfaceHover border-border text-text',
+    'network': 'bg-accent/10 border-accent/30 text-accent',
+    'link': 'bg-surfaceHover border-border text-text',
+    'physical': 'bg-surfaceHover border-border text-text'
   };
 
   // Determine if a layer should render a header blob currently

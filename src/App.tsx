@@ -6,7 +6,7 @@ import { Demo } from './pages/Demo'
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-text selection:bg-primary/30">
+    <div className="min-h-screen bg-background text-text selection:bg-accent/30">
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

@@ -207,7 +207,7 @@ export function NATVisualizer({ currentStep }: NATVisualizerProps) {
 
           {/* Bottom: Packet */}
           <div className="w-full">
-            <h3 className="text-primary font-mono text-sm mb-2 uppercase tracking-wide">Current Packet Header (IP / Port)</h3>
+            <h3 className="text-accent font-mono text-sm mb-2 uppercase tracking-wide">Current Packet Header (IP / Port)</h3>
             {state.packet ? (
               <PacketInspector fields={state.packet} title="Packet Trace" />
             ) : (
@@ -232,7 +232,7 @@ export function NATVisualizer({ currentStep }: NATVisualizerProps) {
   return (
     <div className="flex flex-col gap-6 w-full h-full">
       <div className="bg-surfaceHover p-4 rounded text-text border border-border">
-        <strong className="text-primary font-mono mr-2">Step {currentState.step}/{NAT_MAX_STEPS}:</strong>
+        <strong className="text-accent font-mono mr-2">Step {currentState.step}/{NAT_MAX_STEPS}:</strong>
         {currentState.description}
       </div>
 

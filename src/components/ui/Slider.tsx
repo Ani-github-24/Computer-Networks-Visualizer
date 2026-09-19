@@ -10,7 +10,7 @@ export function Slider({ className, ...props }: SliderProps) {
     <input
       type="range"
       className={cn(
-        "w-full h-2 bg-surfaceHover rounded-lg appearance-none cursor-pointer accent-primary",
+        "w-full h-2 bg-surfaceHover rounded-lg appearance-none cursor-pointer accent-accent",
         className
       )}
       {...props}

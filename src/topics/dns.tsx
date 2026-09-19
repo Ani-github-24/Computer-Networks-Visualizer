@@ -14,11 +14,11 @@ const ACTORS: SequenceActor[] = [
 ];
 
 const NODES: TopologyNode[] = [
-  { id: 'client', label: 'Client (192.168.1.100)', x: 50, y: 200, state: 'default' },
-  { id: 'resolver', label: 'Local Resolver (10.0.0.53)', x: 175, y: 200, state: 'default' },
-  { id: 'root', label: 'Root (198.51.100.1)', x: 275, y: 50, state: 'default' },
-  { id: 'tld', label: 'TLD (192.0.2.1)', x: 350, y: 200, state: 'default' },
-  { id: 'auth', label: 'Auth (203.0.113.99)', x: 275, y: 350, state: 'default' }
+  { id: 'client', label: 'Client (192.168.1.100)', x: 100, y: 200, state: 'default' },
+  { id: 'resolver', label: 'Local Resolver (10.0.0.53)', x: 225, y: 200, state: 'default' },
+  { id: 'root', label: 'Root (198.51.100.1)', x: 325, y: 50, state: 'default' },
+  { id: 'tld', label: 'TLD (192.0.2.1)', x: 400, y: 200, state: 'default' },
+  { id: 'auth', label: 'Auth (203.0.113.99)', x: 325, y: 350, state: 'default' }
 ];
 
 const EDGES: TopologyEdge[] = [
@@ -172,7 +172,7 @@ export function DnsVisualizer({ currentStep }: DnsVisualizerProps) {
           <TopologyGraph 
             nodes={dynamicNodes} 
             edges={dynamicEdges} 
-            width={400} 
+            width={500} 
             height={400} 
           />
         </div>

@@ -87,9 +87,9 @@ export function TopologyGraph({
       .data(simulationEdges)
       .join("line")
       .attr("stroke", (d: any) => {
-        if (d.highlightState === 'primary-path') return '#06b6d4'; // accent
-        if (d.highlightState === 'alternate-path') return '#a3a3a3'; // textMuted
-        return '#404040'; // border
+        if (d.highlightState === 'primary-path') return 'rgb(var(--color-accent))';
+        if (d.highlightState === 'alternate-path') return 'rgb(var(--color-text-muted))';
+        return 'rgb(var(--color-border))';
       })
       .attr("stroke-width", (d: any) => d.highlightState && d.highlightState !== 'none' ? 4 : 2)
       .attr("stroke-dasharray", (d: any) => d.highlightState === 'alternate-path' ? "5,5" : "none")
@@ -115,7 +115,7 @@ export function TopologyGraph({
         return (s.y + t.y) / 2 - 5;
       })
       .attr("text-anchor", "middle")
-      .attr("fill", "#94a3b8")
+      .attr("fill", "rgb(var(--color-text-muted))")
       .attr("font-family", "monospace")
       .attr("font-size", "12px")
       .attr("class", "select-none");
@@ -132,13 +132,13 @@ export function TopologyGraph({
     node.append("circle")
       .attr("r", 20)
       .attr("fill", (d: any) => {
-        if (d.state === 'visited') return '#262626'; // surfaceHover
-        return '#171717'; // surface
+        if (d.state === 'visited') return 'rgb(var(--color-surface-hover))';
+        return 'rgb(var(--color-surface))';
       })
       .attr("stroke", (d: any) => {
-        if (d.state === 'active') return '#06b6d4'; // accent
-        if (d.state === 'frontier' || d.state === 'visited') return '#a3a3a3'; // textMuted
-        return '#404040'; // border
+        if (d.state === 'active') return 'rgb(var(--color-accent))';
+        if (d.state === 'frontier' || d.state === 'visited') return 'rgb(var(--color-text-muted))';
+        return 'rgb(var(--color-border))';
       })
       .attr("stroke-dasharray", (d: any) => d.state === 'frontier' ? "4,4" : "none")
       .attr("stroke-width", 2);
@@ -147,7 +147,7 @@ export function TopologyGraph({
       .text((d: any) => d.label)
       .attr("y", 35)
       .attr("text-anchor", "middle")
-      .attr("fill", "#f8fafc")
+      .attr("fill", "rgb(var(--color-text))")
       .attr("font-size", "12px")
       .attr("font-weight", "500")
       .attr("class", "select-none drop-shadow-md");
@@ -162,7 +162,7 @@ export function TopologyGraph({
       })
       .attr("y", 5)
       .attr("text-anchor", "middle")
-      .attr("fill", (d: any) => d.state === 'active' ? '#06b6d4' : '#a3a3a3')
+      .attr("fill", (d: any) => d.state === 'active' ? 'rgb(var(--color-accent))' : 'rgb(var(--color-text-muted))')
       .attr("font-family", "monospace")
       .attr("font-weight", "bold");
 
@@ -185,7 +185,7 @@ export function TopologyGraph({
             .attr("height", 16)
             .attr("x", -8)
             .attr("y", -8)
-            .attr("fill", "#06b6d4") // accent
+            .attr("fill", "rgb(var(--color-accent))")
             .attr("rx", 3);
             
           if (p.label) {
@@ -193,7 +193,7 @@ export function TopologyGraph({
               .text(p.label)
               .attr("y", -12)
               .attr("text-anchor", "middle")
-              .attr("fill", "#06b6d4")
+              .attr("fill", "rgb(var(--color-accent))")
               .attr("font-size", "10px")
               .attr("font-family", "monospace")
               .attr("font-weight", "bold");

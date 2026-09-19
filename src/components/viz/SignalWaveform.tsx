@@ -74,11 +74,11 @@ export function SignalWaveform({
           
           <svg width="100%" height="100%" viewBox="0 0 800 100" preserveAspectRatio="none">
             {/* Grid lines */}
-            <line x1="0" y1="50" x2="800" y2="50" stroke="#334155" strokeDasharray="4,4" />
+            <line x1="0" y1="50" x2="800" y2="50" stroke="rgb(var(--color-border))" strokeDasharray="4,4" />
             <path 
               d={renderWaveformPath(dataBits, 'clean')} 
               fill="none" 
-              stroke="#0ea5e9" 
+              stroke="rgb(var(--color-accent))" 
               strokeWidth="2" 
               vectorEffect="non-scaling-stroke" 
             />
@@ -89,11 +89,11 @@ export function SignalWaveform({
           <div className="relative w-full h-[100px] border-l border-b border-border/50">
             <span className="absolute top-2 right-2 text-xs text-error font-mono opacity-50">Noisy Signal (Noise: {noiseLevel}%)</span>
             <svg width="100%" height="100%" viewBox="0 0 800 100" preserveAspectRatio="none">
-              <line x1="0" y1="50" x2="800" y2="50" stroke="#334155" strokeDasharray="4,4" />
+              <line x1="0" y1="50" x2="800" y2="50" stroke="rgb(var(--color-border))" strokeDasharray="4,4" />
               <path 
                 d={renderWaveformPath(dataBits, 'noisy')} // In a full implementation, this path would be jittered
                 fill="none" 
-                stroke="#ef4444" 
+                stroke="rgb(var(--color-error))" 
                 strokeWidth="2" 
                 vectorEffect="non-scaling-stroke" 
                 className={noiseLevel > 0 ? "opacity-80" : "opacity-100"}

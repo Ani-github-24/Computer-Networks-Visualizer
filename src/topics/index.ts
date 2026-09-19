@@ -2,6 +2,7 @@ import { EncapsulationVisualizer, ENCAPSULATION_MAX_STEPS } from './encapsulatio
 import { DnsVisualizer, DNS_MAX_STEPS } from './dns';
 import { TcpHandshakeVisualizer, TCP_HANDSHAKE_MAX_STEPS } from './tcp-handshake';
 import { TcpCongestionControlVisualizer, TCP_CC_MAX_STEPS } from './tcp-congestion-control';
+import { DijkstraVisualizer, DIJKSTRA_MAX_STEPS } from './dijkstra';
 import type { ComponentType } from 'react';
 
 export interface TopicDefinition {
@@ -72,5 +73,19 @@ export const topicRegistry: Record<string, TopicDefinition> = {
     maxSteps: TCP_CC_MAX_STEPS,
     unitId: 'unit-2',
     Visualizer: TcpCongestionControlVisualizer
+  },
+  'dijkstra': {
+    title: 'Dijkstra Routing',
+    intro: "This visualization demonstrates Dijkstra's Link-State routing algorithm, computing the shortest path from a source node to all other nodes in a network.",
+    theory: `
+### Key Concepts
+
+- **Link-State Routing**: Each node possesses the entire network topology and edge weights, allowing it to compute the shortest path locally.
+- **Tentative Distances**: The algorithm continuously relaxes edges. A node's first reached distance is tentative and can be improved if a shorter overall path is found.
+- **Greedy Selection**: At each step, the unvisited node with the lowest tentative distance is selected and marked as visited. Its distance is now guaranteed optimal.
+    `,
+    maxSteps: DIJKSTRA_MAX_STEPS,
+    unitId: 'unit-2',
+    Visualizer: DijkstraVisualizer
   }
 };

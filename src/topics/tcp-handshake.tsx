@@ -107,8 +107,8 @@ export function TcpHandshakeVisualizer({ currentStep }: TcpHandshakeVisualizerPr
         {STEP_DESCRIPTIONS[currentStep]}
       </div>
 
-      <div className="flex gap-4">
-        <div className="w-full flex flex-col justify-start max-w-4xl mx-auto">
+      <div className="flex-grow flex items-center justify-center min-h-[400px]">
+        <div className="w-full flex flex-col justify-start max-w-[1400px] mx-auto">
           <SequenceDiagram 
             actors={ACTORS} 
             messages={MESSAGES} 

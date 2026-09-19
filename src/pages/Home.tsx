@@ -29,50 +29,50 @@ const units = [
 
 ]
 
-export function Home() {
-  return (
-    <div className="container mx-auto px-4 py-8 max-w-5xl">
-      <header className="mb-12 text-center">
-        <h1 className="text-4xl font-bold mb-4 font-mono tracking-tight text-accent">CN Visualizer</h1>
-        <p className="text-lg text-textMuted max-w-2xl mx-auto">
-          Interactive visualizations for Computer Networks protocols and algorithms.
-        </p>
-      </header>
-
-      <Tabs defaultValue="unit-1" className="w-full">
-        <div className="flex justify-center mb-8">
-          <TabsList className="grid w-full max-w-md grid-cols-3">
-            {units.map((unit) => (
-              <TabsTrigger key={unit.id} value={unit.id}>
-                {unit.title}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </div>
-
-        {units.map((unit) => (
-          <TabsContent key={unit.id} value={unit.id}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {unit.topics.map((topic) => (
-                <Link 
-                  key={topic.id} 
-                  to={topic.status === 'Available' ? `/topic/${topic.id}` : '#'}
-                  className={topic.status === 'Available' ? 'block' : 'block cursor-not-allowed opacity-75'}
-                  onClick={(e) => topic.status !== 'Available' && e.preventDefault()}
-                >
-                  <Card className="h-full transition-all hover:border-accent hover:shadow-sm group">
-                    <CardHeader className="pb-4">
-                      <div className="flex justify-between items-start gap-4">
-                        <CardTitle className="group-hover:text-accent transition-colors">
-                          {topic.title}
-                        </CardTitle>
-                        <span className={`text-xs px-2 py-1 rounded-full font-mono font-medium ${
-                          topic.status === 'Available' 
-                            ? 'bg-accent/10 text-accent border border-accent/20' 
-                            : 'bg-surfaceHover text-textMuted border border-border'
-                        }`}>
-                          {topic.status}
-                        </span>
+  export function Home() {
+    return (
+      <div className="container mx-auto px-4 py-8 max-w-[1400px]">
+        <header className="mb-12 text-center">
+          <h1 className="text-4xl font-bold mb-4 font-mono tracking-tight text-accent">CN Visualizer</h1>
+          <p className="text-lg text-textMuted max-w-2xl mx-auto">
+            Interactive visualizations for Computer Networks protocols and algorithms.
+          </p>
+        </header>
+  
+        <Tabs defaultValue="unit-1" className="w-full">
+          <div className="flex justify-center mb-8">
+            <TabsList className="grid w-full max-w-md grid-cols-3">
+              {units.map((unit) => (
+                <TabsTrigger key={unit.id} value={unit.id}>
+                  {unit.title}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
+  
+          {units.map((unit) => (
+            <TabsContent key={unit.id} value={unit.id}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {unit.topics.map((topic) => (
+                  <Link 
+                    key={topic.id} 
+                    to={topic.status === 'Available' ? `/topic/${topic.id}` : '#'}
+                    className={topic.status === 'Available' ? 'block' : 'block cursor-not-allowed opacity-75'}
+                    onClick={(e) => topic.status !== 'Available' && e.preventDefault()}
+                  >
+                    <Card className="h-full transition-all hover:border-accent hover:shadow-sm group">
+                      <CardHeader className="pb-4">
+                        <div className="flex justify-between items-start gap-4">
+                          <CardTitle className="group-hover:text-accent transition-colors flex-1 min-w-0">
+                            {topic.title}
+                          </CardTitle>
+                          <span className={`shrink-0 whitespace-nowrap text-xs px-2 py-1 rounded-full font-mono font-medium ${
+                            topic.status === 'Available' 
+                              ? 'bg-accent/10 text-accent border border-accent/20' 
+                              : 'bg-surfaceHover text-textMuted border border-border'
+                          }`}>
+                            {topic.status}
+                          </span>
                       </div>
                       <CardDescription className="pt-2">
                         {topic.description}

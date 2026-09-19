@@ -27,7 +27,7 @@ export function PacketInspector({ title = "Packet Inspector", fields, onFieldHov
   const totalBits = fields.reduce((sum, f) => sum + f.widthBits, 0);
 
   return (
-    <div className="bg-surface border border-border rounded overflow-hidden flex flex-col w-full max-w-3xl">
+    <div className="bg-surface border border-border rounded overflow-hidden flex flex-col w-full max-w-5xl">
       <div className="bg-surfaceHover px-4 py-2 border-b border-border flex justify-between items-center">
         <h3 className="font-mono text-sm font-semibold text-text">{title}</h3>
         <span className="text-xs text-textMuted font-mono">{totalBits} bits</span>

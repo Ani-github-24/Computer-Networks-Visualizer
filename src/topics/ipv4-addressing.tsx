@@ -132,7 +132,7 @@ export function Ipv4AddressingVisualizer() {
   const subnet = useMemo(() => parseCidr(cidr), [cidr]);
 
   return (
-    <div className="flex flex-col gap-8 w-full max-w-5xl mx-auto py-4">
+    <div className="flex flex-col gap-8 w-full max-w-[1400px] mx-auto py-4">
       {/* PART A: IPv4 Header */}
       <section className="bg-surface rounded-lg border border-border overflow-hidden">
         <div className="bg-surfaceHover px-6 py-4 border-b border-border">

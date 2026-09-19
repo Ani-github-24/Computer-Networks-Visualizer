@@ -17,14 +17,14 @@ export function generatePacketFields(fragState: FragState): PacketField[] {
     offset = 0;
     isHighlight = false;
   } else if (fragState === 'frag1') {
-    length = 1500;
+    length = 996; // 976 payload + 20 header
     flags = 'MF=1';
     offset = 0;
     isHighlight = true;
   } else if (fragState === 'frag2') {
-    length = 520;
+    length = 524; // 504 payload + 20 header
     flags = 'MF=0';
-    offset = 185; // 185 * 8 = 1480 bytes offset
+    offset = 122; // 976 / 8 = 122
     isHighlight = true;
   }
 

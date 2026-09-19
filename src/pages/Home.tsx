@@ -21,6 +21,7 @@ const units = [
       { id: 'tcp-handshake', title: 'TCP 3-Way Handshake', description: 'Connection establishment in Transmission Control Protocol', status: 'Available' },
       { id: 'congestion-control', title: 'TCP Congestion Control', description: 'Algorithms to avoid network congestion', status: 'Available' },
       { id: 'ipv4-addressing', title: 'IPv4 Addressing & Header', description: 'Datagram format, fragmentation, and CIDR subnetting', status: 'Available' },
+      { id: 'nat', title: 'Network Address Translation (NAT)', description: 'Translation tables, port mapping, and incidental firewall behavior', status: 'Available' },
       { id: 'dijkstra', title: 'Dijkstra Routing', description: 'Shortest path first routing algorithm', status: 'Available' },
       { id: 'distance-vector', title: 'Distance Vector', description: 'Routing protocol using distance-vector algorithms', status: 'Available' },
     ]

@@ -5,6 +5,7 @@ import { TcpCongestionControlVisualizer, TCP_CC_MAX_STEPS } from './tcp-congesti
 import { DijkstraVisualizer, DIJKSTRA_MAX_STEPS } from './dijkstra';
 import { DistanceVectorVisualizer, DV_MAX_STEPS } from './distance-vector';
 import { Ipv4AddressingVisualizer, IPV4_MAX_STEPS } from './ipv4-addressing';
+import { NATVisualizer, NAT_MAX_STEPS } from './nat';
 import type { ComponentType } from 'react';
 
 export interface TopicDefinition {
@@ -117,5 +118,19 @@ export const topicRegistry: Record<string, TopicDefinition> = {
     maxSteps: IPV4_MAX_STEPS,
     unitId: 'unit-2',
     Visualizer: Ipv4AddressingVisualizer
+  },
+  'nat': {
+    title: 'Network Address Translation (NAT)',
+    intro: 'This visualization demonstrates how a NAT Gateway allows private LANs to traverse the global internet by rewriting IP addresses and ports.',
+    theory: `
+### Key Concepts
+
+- **Private vs Public IPs**: RFC 1918 defines address blocks (like \`192.168.x.x\`) that are completely unroutable on the public internet. NAT acts as a proxy, substituting its own public IP for outgoing traffic.
+- **Translation Table**: The gateway tracks outbound connections, assigning an ephemeral public port to map back to the private client. It rewrites Source IP/Port for outbound packets and Destination IP/Port for inbound packets.
+- **Incidental Firewall**: Because NAT fundamentally requires an outbound mapping to exist before it knows where to route inbound packets, unsolicited external traffic targeting the gateway's public IP is dropped by default, acting as a stateful firewall.
+    `,
+    maxSteps: NAT_MAX_STEPS,
+    unitId: 'unit-2',
+    Visualizer: NATVisualizer
   }
 };

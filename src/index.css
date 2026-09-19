@@ -5,7 +5,31 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-background: 255 255 255;
+    --color-surface: 245 245 245;
+    --color-surface-hover: 229 229 229;
+    --color-border: 212 212 212;
+    --color-text: 23 23 23;
+    --color-text-muted: 82 82 82;
+    --color-accent: 8 145 178;
+    --color-accent-hover: 14 116 144;
+    --color-error: 220 38 38;
+  }
+
+  .dark {
+    --color-background: 10 10 10;
+    --color-surface: 23 23 23;
+    --color-surface-hover: 38 38 38;
+    --color-border: 64 64 64;
+    --color-text: 245 245 245;
+    --color-text-muted: 163 163 163;
+    --color-accent: 6 182 212;
+    --color-accent-hover: 8 145 178;
+    --color-error: 220 38 38;
+  }
+
   body {
-    @apply bg-background text-text font-sans antialiased;
+    @apply bg-background text-text font-sans antialiased transition-colors duration-300;
   }
 }

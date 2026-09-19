@@ -7,15 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#0a0a0a', // neutral-950
-        surface: '#171717', // neutral-900
-        surfaceHover: '#262626', // neutral-800
-        border: '#404040', // neutral-700
-        text: '#f5f5f5', // neutral-100
-        textMuted: '#a3a3a3', // neutral-400
-        accent: '#06b6d4', // cyan-500
-        accentHover: '#0891b2', // cyan-600
-        error: '#dc2626', // red-600 (kept strictly for failure scenarios like drops/timeouts)
+        background: 'rgb(var(--color-background) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        surfaceHover: 'rgb(var(--color-surface-hover) / <alpha-value>)',
+        border: 'rgb(var(--color-border) / <alpha-value>)',
+        text: 'rgb(var(--color-text) / <alpha-value>)',
+        textMuted: 'rgb(var(--color-text-muted) / <alpha-value>)',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
+        accentHover: 'rgb(var(--color-accent-hover) / <alpha-value>)',
+        error: 'rgb(var(--color-error) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

@@ -4,6 +4,7 @@ import { TcpHandshakeVisualizer, TCP_HANDSHAKE_MAX_STEPS } from './tcp-handshake
 import { TcpCongestionControlVisualizer, TCP_CC_MAX_STEPS } from './tcp-congestion-control';
 import { DijkstraVisualizer, DIJKSTRA_MAX_STEPS } from './dijkstra';
 import { DistanceVectorVisualizer, DV_MAX_STEPS } from './distance-vector';
+import { Ipv4AddressingVisualizer, IPV4_MAX_STEPS } from './ipv4-addressing';
 import type { ComponentType } from 'react';
 
 export interface TopicDefinition {
@@ -102,5 +103,19 @@ export const topicRegistry: Record<string, TopicDefinition> = {
     maxSteps: DV_MAX_STEPS,
     unitId: 'unit-2',
     Visualizer: DistanceVectorVisualizer
+  },
+  'ipv4-addressing': {
+    title: 'IPv4 Addressing & Header',
+    intro: 'This visualization demonstrates the full IPv4 Datagram format and the bitwise mathematics of CIDR subnetting.',
+    theory: `
+### Key Concepts
+
+- **IPv4 Datagram Header**: The standard IPv4 header is exactly 20 bytes (160 bits). It contains critical fields for routing (Source/Dest IP), lifespan (TTL), payload demultiplexing (Protocol), and fragmentation control (Identification, Flags, Fragment Offset).
+- **Fragmentation**: When a router encounters a packet larger than the outbound link's MTU, it splits the payload into fragments. All fragments share the same Identification number. The "More Fragments" flag and "Fragment Offset" field allow the destination host to reassemble the pieces.
+- **CIDR Subnetting**: Subnetting is fundamentally a bitwise masking operation. The Network Address is calculated by performing a Bitwise AND between the IP Address and the Subnet Mask. The Broadcast Address is calculated by performing a Bitwise OR between the Network Address and the inverted Subnet Mask.
+    `,
+    maxSteps: IPV4_MAX_STEPS,
+    unitId: 'unit-2',
+    Visualizer: Ipv4AddressingVisualizer
   }
 };

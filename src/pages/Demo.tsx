@@ -43,7 +43,7 @@ export function Demo() {
     { id: 'D', label: 'Router D', type: 'router', x: 500, y: 150, state: 'default' as const }
   ];
   const topEdges = [
-    { id: 'e1', source: 'A', target: 'B', weight: 5, highlightState: 'accent-path' as const },
+    { id: 'e1', source: 'A', target: 'B', weight: 5, highlightState: 'primary-path' as const },
     { id: 'e2', source: 'A', target: 'C', weight: 10, highlightState: 'alternate-path' as const },
     { id: 'e3', source: 'B', target: 'D', weight: 2 },
     { id: 'e4', source: 'C', target: 'D', weight: 1 }

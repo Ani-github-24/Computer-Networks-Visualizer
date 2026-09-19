@@ -3,6 +3,7 @@ import { DnsVisualizer, DNS_MAX_STEPS } from './dns';
 import { TcpHandshakeVisualizer, TCP_HANDSHAKE_MAX_STEPS } from './tcp-handshake';
 import { TcpCongestionControlVisualizer, TCP_CC_MAX_STEPS } from './tcp-congestion-control';
 import { DijkstraVisualizer, DIJKSTRA_MAX_STEPS } from './dijkstra';
+import { DistanceVectorVisualizer, DV_MAX_STEPS } from './distance-vector';
 import type { ComponentType } from 'react';
 
 export interface TopicDefinition {
@@ -87,5 +88,19 @@ export const topicRegistry: Record<string, TopicDefinition> = {
     maxSteps: DIJKSTRA_MAX_STEPS,
     unitId: 'unit-2',
     Visualizer: DijkstraVisualizer
+  },
+  'distance-vector': {
+    title: 'Distance Vector Routing',
+    intro: 'This visualization demonstrates Distance Vector routing (Bellman-Ford) and the Count-to-Infinity problem.',
+    theory: `
+### Key Concepts
+
+- **Distance Vector**: Each node maintains a vector of distances to all known destinations and shares only this vector with its immediate neighbors.
+- **Bellman-Ford Equation**: Nodes iteratively compute their shortest path using the formula: $D_x(y) = \\min_v \\{ c(x,v) + D_v(y) \\}$.
+- **Count-to-Infinity**: Because nodes don't share the *path* (only the cost), they can unknowingly route through each other. If a link fails, nodes may bounce stale estimates back and forth, counting up to infinity.
+    `,
+    maxSteps: DV_MAX_STEPS,
+    unitId: 'unit-2',
+    Visualizer: DistanceVectorVisualizer
   }
 };

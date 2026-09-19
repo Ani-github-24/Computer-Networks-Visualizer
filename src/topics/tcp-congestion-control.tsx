@@ -65,7 +65,7 @@ export interface TcpCongestionControlVisualizerProps {
   currentStep: number;
 }
 
-export { TCP_CC_MAX_STEPS };
+export { TCP_CC_MAX_STEPS, type TCPState, computeStates };
 
 export function TcpCongestionControlVisualizer({ currentStep }: TcpCongestionControlVisualizerProps) {
   const [outcomeHistory, setOutcomeHistory] = useState<string[]>([]);
